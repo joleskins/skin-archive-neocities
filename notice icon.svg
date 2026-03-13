@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-1103,-639)">
+        <rect id="notice-icon" serif:id="notice icon" x="1103" y="639" width="14" height="14" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect id="notice-icon1" serif:id="notice icon" x="1103" y="639" width="14" height="14"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(1,0,0,1,-37,-47)">
+                <g transform="matrix(0.736842,0,0,0.736842,290.421,179.789)">
+                    <circle cx="1162.5" cy="696.5" r="9.5" style="fill:rgb(3,77,253);fill-opacity:0.15;"/>
+                </g>
+                <g transform="matrix(0.736842,0,0,0.736842,290.421,179.789)">
+                    <path d="M1162.5,687C1167.74,687 1172,691.257 1172,696.5C1172,701.743 1167.74,706 1162.5,706C1157.26,706 1153,701.743 1153,696.5C1153,691.257 1157.26,687 1162.5,687ZM1162.5,688.357C1158.01,688.357 1154.36,692.006 1154.36,696.5C1154.36,700.994 1158.01,704.643 1162.5,704.643C1166.99,704.643 1170.64,700.994 1170.64,696.5C1170.64,692.006 1166.99,688.357 1162.5,688.357Z" style="fill:rgb(3,77,253);"/>
+                </g>
+                <circle cx="1147" cy="690" r="1" style="fill:rgb(3,77,253);"/>
+                <g transform="matrix(1,0,0,0.714286,-6,198.929)">
+                    <path d="M1153.03,691C1153.29,691 1153.54,691.143 1153.72,691.397C1153.9,691.651 1154,691.996 1154,692.356C1154,693.592 1154,695.408 1154,696.644C1154,697.004 1153.9,697.349 1153.72,697.603C1153.54,697.857 1153.29,698 1153.03,698C1153.01,698 1152.99,698 1152.97,698C1152.71,698 1152.46,697.857 1152.28,697.603C1152.1,697.349 1152,697.004 1152,696.644C1152,695.408 1152,693.592 1152,692.356C1152,691.996 1152.1,691.651 1152.28,691.397C1152.46,691.143 1152.71,691 1152.97,691C1152.99,691 1153.01,691 1153.03,691Z" style="fill:rgb(3,77,253);"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

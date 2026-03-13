@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 48 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-868,-513)">
+        <g id="_7plus1k" serif:id="7plus1k" transform="matrix(3.42857,0,0,2.2,-1360.57,-615.6)">
+            <rect x="650" y="513" width="14" height="10" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="650" y="513" width="14" height="10"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(0.132075,0,0,0.192308,650,513)">
+                    <path d="M97.157,-0C99.502,-0 101.751,0.997 103.41,2.772C105.068,4.547 106,6.955 106,9.465C106,18.851 106,33.149 106,42.535C106,45.045 105.068,47.453 103.41,49.228C101.751,51.003 99.502,52 97.157,52C77.191,52 28.809,52 8.843,52C6.498,52 4.249,51.003 2.59,49.228C0.932,47.453 -0,45.045 -0,42.535C0,33.149 0,18.851 0,9.465C-0,6.955 0.932,4.547 2.59,2.772C4.249,0.997 6.498,-0 8.843,0C28.809,0 77.191,0 97.157,-0Z" style="fill:rgb(50,95,255);"/>
+                </g>
+                <g transform="matrix(0.275424,0,0,0.429233,622.65,492.901)">
+                    <path d="M112.34,62.915L115.784,55.307L116.072,55.895L111.776,55.895L111.776,54.491L117.068,54.491L117.248,55.367L113.96,62.915L112.34,62.915Z" style="fill:white;fill-rule:nonzero;"/>
+                    <path d="M118.22,60.167L118.22,58.919L124.232,58.919L124.232,60.167L118.22,60.167ZM120.512,62.423L120.512,56.603L121.928,56.603L121.928,62.423L120.512,62.423Z" style="fill:white;fill-rule:nonzero;"/>
+                    <path d="M127.364,62.327L127.364,55.511L127.808,56.087L126.104,56.951L125.756,55.583L128.048,54.395L128.912,54.395L128.912,62.327L127.364,62.327ZM125.96,62.915L125.96,61.475L130.352,61.475L130.352,62.915L125.96,62.915Z" style="fill:white;fill-rule:nonzero;"/>
+                    <path d="M133.292,60.983L133.004,59.603L136.004,56.591L137.972,56.591L133.292,60.983ZM131.912,62.915L131.912,54.035L133.388,54.035L133.388,62.915L131.912,62.915ZM136.184,62.915L133.856,60.095L134.9,59.207L138.008,62.915L136.184,62.915Z" style="fill:white;fill-rule:nonzero;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

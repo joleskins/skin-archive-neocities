@@ -1,0 +1,269 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+* {
+  cursor: url("cursor.svg"), auto;
+}
+
+body {
+        background-color: #060606;
+        color: #FFFFFF;
+        font-family: 'lexend';
+        margin: 0;
+        padding: 0;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: #060606;
+        }
+        
+        /*Shrinking the scrollbar*/
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+        
+        /*Removing the horizontal scrollbar*/
+        ::-webkit-scrollbar:horizontal {
+          display: none;
+        }
+        
+        /*Giving the thumb a gradient*/
+        ::-webkit-scrollbar-thumb {
+          background-color: #141414;
+          border: solid #FFFFFF33;
+          border-radius: 6px;
+          border-width: 1px;
+        }
+        
+        .container {
+            width: 60%;
+            min-width: 40%;
+            margin: auto;
+            padding-top: 20px;
+            display: block;
+        }
+        .skinContainer {
+            margin: 0px;
+            padding-top: 0;
+        }
+        h1 {
+            font-size: 2em;
+            text-align: left;
+        }
+        h2 {
+            font-size: 1em;
+            text-align: left;
+        }
+        bodytext {
+            font-size: 1em;
+            text-align: left;
+        }
+        cardHeader {
+          font-size: 1.5em;
+          text-align: left;
+          position: relative;
+          left: 16px;
+          top: 0px;
+        }
+        cardDescription {
+          font-size: 0.75em;
+          text-align: left;
+          position: relative;
+          left: 16px;
+          top: 0px;
+        }
+        .notice {
+          font-size: 1em;
+          background-color: #034DFD15;
+          border: solid #034DFD66;
+          border-radius: 6px;
+          border-width: 1px;
+          text-align: left;
+          margin: 8px 0px 8px 0px;
+          padding: 15px 15px 15px 48px;
+          position: relative;
+        }
+        noticeText {
+          font-size: 0.9em;
+          text-align: left;
+          color: #FFFFFF88;
+        }
+        noticeHighlight {
+          font-size: 0.9em;
+          text-align: left;
+          color: #FFFFFF;
+        }
+        .notice img {
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          transform: translateY(-50%);
+          height: 1em;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 20px;
+            left: 0px;
+        }
+        .card {
+            margin: 0px;
+            background: #141414;
+            padding: 15px;
+            border: solid #FFFFFF33;
+            border-radius: 6px;
+            border-width: 1px;
+            text-align: center;
+            opacity: 0.75;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .card-slideshow {
+            margin: 0px;
+            background: #141414;
+            padding: 0;
+            border: solid #FFFFFF33;
+            border-radius: 6px;
+            border-width: 1px;
+            text-align: left;
+            opacity: 0.75;
+            position: relative;
+        }
+        .card-slideshow img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px 6px 10px 10px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .card-slideshow .placeholder {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+        .cardBadges {
+          position: absolute;
+          right: 16px;
+          bottom: 16px;
+          display: flex;
+          flex-direction: row-reverse;
+          gap: 8px;
+        }
+        .cardBadges img {
+          height: 1.3em;
+          width: auto;
+          border-radius: 0;
+        }
+        .slideImages {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: none;
+        }
+        .slidePrev, .slideNext {
+            position: absolute;       /* fix relative to slideshow container */
+            top: 50%;                 /* vertical center */
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border-radius: 3px;
+            user-select: none;
+        }
+        
+        .slidePrev { left: 0px; }
+        .slideNext { right: 0px; }
+        .slidePrev:hover, .slideNext:hover {
+          background-color: rgba(0,0,0,0.8);
+        }
+        .card-slideshow .dots {
+          position: absolute;
+          bottom: 15%;
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+          z-index: 2;
+        }
+        .slideDot {
+          height: 8px;
+          width: 8px;
+          margin: 0 4px;
+          background-color: #222;
+          border-radius: 50%;
+          position: relative;
+          top: -30px;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+        .slideActive, .slideDot:hover {
+          background-color: #FFFFFF;
+          cursor: url("cursor_hover.svg"), auto;
+        }
+        .slideFade {
+          animation-name: slideFade;
+          animation-duration: 0.5s;
+        }
+        
+        @keyframes slideFade {
+          from {opacity: .4}
+          to {opacity: 1}
+        }
+          
+          
+        
+        .pageButtons {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        /* Style tab links */
+        .tablink {
+          background-color: #141414;
+          color: white;
+          border: solid #FFFFFF33;
+          border-radius: 6px;
+          border-width: 1px;
+          outline: none;
+          padding: 14px 12px;
+          font-size: 17px;
+          width: 8.07%;
+          margin: 0.3%;
+        }
+        
+        .tablink:hover {
+          background-color: #222;
+          cursor: url("cursor_hover.svg"), auto;
+        }
+        
+        a:link {
+          color: white;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        
+        a:visited {
+          color: white;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        
+        a:hover {
+          color: #FFFFFFCC;
+          background-color: transparent;
+          text-decoration: none;
+          cursor: url("cursor_hover.svg"), auto;
+        }
+        
+        a:active {
+          color: white;
+          background-color: transparent;
+          text-decoration: none;
+}
+        
