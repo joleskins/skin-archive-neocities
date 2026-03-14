@@ -1079,6 +1079,19 @@
             
             // Get the element with id="defaultOpen" and click on it
             document.getElementById("defaultOpen").click();
+
+
+            // because this page is multiple pages in one, there's
+            // some weirdness with the browser retaining current 
+            // scroll position when refreshing the page. so this
+            // (hopefully?) scrolls to the top of the page when
+            // you refresh
+            history.scrollRestoration = "manual";
+
+            $(window).on('beforeunload', function(){
+                  $(window).scrollTop(0);
+            });
+
         </script>
 
 </body>
