@@ -15,7 +15,6 @@
     <meta property="og:description" content="all my skins in one place✨" />
     
     <title>jole skin archive</title>
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
     
     <link rel="icon" type="image/x-icon" href="favicon.png">
@@ -118,7 +117,16 @@
         <br><br><br>
             <h1>Skins</h1>
                   <div class="noticeWrapper" id="etternaSkinNotice"></div>
-                  <br><br>
+                  <br>
+
+                  <div class="sortButtons" id="etternaSkinSorts">
+                        <sortHeader>Sort</sortHeader>
+                        
+                        <button class="tabsorts" onclick="sortList('date', this, 'etterna', 'skins')" id="defaultSort" >Recent</button>
+                        <button class="tabsorts" onclick="sortList('title', this, 'etterna', 'skins')">Title</button>
+                  </div>
+                  
+
                   <div class="grid" id="etternaSkins"></div>
         
         <br>
@@ -710,6 +718,7 @@
                                           title: "strobe",
                                           desc: "typography focused skin",
                                           link: "https://osu.ppy.sh/community/forums/topics/2166823?n=1",
+                                          date: "2025-12-31",
                                           keys: ["1" ,"2" ,"3" ,"4" ,"5" ,"6" ,"7" ,"8" ,"9" ,"10"],
                                           type: "bar",
                                           badges: ["1-10k", "mania"]
@@ -845,20 +854,31 @@
                   `;
             }
 
-            // card data sorting
-            function compare(a, b) {
-                  if(a < b) {
-                        return -1;
-                  }
-                  if(a > b) {
-                        return 1;
-                  }
-                  return 0;
-            }
-            function sortCards(containerId, category) {
-                  for(category in skins.containerId) {
-                        skins[containerId].sort(compare)
-                  }
+
+            // card sorting depending on sort type
+            function sortCards(cards, sortMode) {
+                  // sort goes over each card and give -1, 1 or 0 depending on title/date match
+                  // and uses those values to sort the skins -> game -> category -> items array
+
+                  // when sorting by recent, we actually want the opposite direction because it
+                  // needs to be descending(highest first) instead of the ascending sort required
+                  // for alphabetical sort. this check sets direction to 1 for title and -1 for recent
+                  const direction = (sortMode == "date") ? -1 : 1;
+
+                  cards.sort((a, b) => {
+                        const valueA = (a[sortMode] || "").toUpperCase();
+                        const valueB = (b[sortMode] || "").toUpperCase();
+
+                        // to reverse the sorting we simply multiply the value by the const based on const direction
+                        if(valueA < valueB) {
+                              return -1 * direction;
+                        }
+                        if(valueA > valueB) {
+                              return 1 * direction;
+                        }
+
+                        return 0;
+                  });
                   
             }
 
@@ -893,19 +913,27 @@
             async function renderCards(containerId, data, folder) {
                   const container = document.getElementById(containerId);
 
+                  // then create cards
                   for (const item of data) {
-                        item.slides = await findSlides(folder, item.title);
                         container.innerHTML += createSkinCard(item);
                   };
             }
-            async function initCards() {
+            async function initCards(sortMode) {
                   
                   for (const game in skins) {
                         const categories = skins[game];
 
                         for (const category in categories) {
-                              sortCards(game, category)
+                              
                               const { folder, container, items } = categories[category];
+
+                              // find slides and load them only on init
+                              for (const item of items) {
+                                    item.slides = await findSlides(folder, item.title);
+                                    container.innerHTML += createSkinCard(item);
+                              };
+
+                              sortCards(items, sortMode)
 
                               await renderCards(container, items, folder);
                         }
@@ -981,7 +1009,39 @@
                   // Add the specific color to the button used to open the tab content
                   elmnt.style.backgroundColor = "#333333";
             }
-        
+            
+            async function sortList(sortMode, elmnt, pageName, category) {
+                  var i, tabsorts;
+                  
+                  // remove bg colour
+                  tabsorts = document.getElementsByClassName("tabsorts");
+                  for(i = 0; i < tabsorts.length; i++) {
+                        tabsorts[i].style.backgroundColor = "";
+
+                  }
+
+                  
+
+                  const { folder, container, items } = skins[pageName][category];
+
+                  // clear any existing cards html in the container when changing sort mode,
+                  // otherwise the existing list just keeps stacking.
+                  // also 'container' is a string here so grab the actual element
+                  const containerElement = document.getElementById(container);
+                  containerElement.innerHTML = "";
+
+                  elmnt.style.backgroundColor = "#333333"
+                  sortCards(items, sortMode)
+                  await renderCards(container, items, folder) 
+                  
+
+                  // slides will be invisible if we don't do the same initialisation as in initCards()
+                  document.querySelectorAll(`#${container} .card-slideshow`).forEach(slideshow => {
+                        slideshow.dataset.index = 1;
+                        showSlides(slideshow, 1);
+                  })
+            }
+
             // quick notice div insertion
             function createNotice(containerId, text) {
                   const container = document.getElementById(containerId);

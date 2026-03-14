@@ -73,6 +73,14 @@ body {
           left: 16px;
           top: 0px;
         }
+        sortHeader {
+          font-size: 1em;
+          display: inline-block;
+          text-align: right;
+          margin: 0 8px 16px 0;
+          line-height: 1;
+          vertical-align: middle;
+        }
         .notice {
           font-size: 1em;
           background-color: #034DFD15;
@@ -223,6 +231,13 @@ body {
           align-items: center;
         }
         
+
+        .sortButtons {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 8px;
+        }
         /* Style tab links */
         .tablink {
           background-color: #141414;
@@ -232,12 +247,35 @@ body {
           border-width: 1px;
           outline: none;
           padding: 14px 12px;
-          font-size: 17px;
+          font-size: 1em;
           width: 8.07%;
           margin: 0.3%;
         }
         
         .tablink:hover {
+          background-color: #222;
+          cursor: url("cursor_hover.svg"), auto;
+        }
+
+               /* Style tab links */
+        .tabsorts {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #141414;
+          color: white;
+          border: solid #FFFFFF33;
+          border-radius: 4px;
+          border-width: 1px;
+          outline: none;
+          padding: 0px 8px 0px;
+          font-size: 0.8em;
+          width: 80px;
+          height: 32px;
+          margin: 0 0 16px 0;
+        }
+        
+        .tabsorts:hover {
           background-color: #222;
           cursor: url("cursor_hover.svg"), auto;
         }
