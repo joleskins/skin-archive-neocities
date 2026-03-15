@@ -914,12 +914,13 @@
             }
             async function renderCards(containerId, data, folder) {
                   const container = document.getElementById(containerId);
-
-                  // then create cards
-                  for (const item of data) {
-                        container.innerHTML += createSkinCard(item);
-                  };
+                  container.innerHTML = data.map(createSkinCard).join("");
             }
+            /**
+             * before changing openPage() to load on demand, this function
+             * would load all skin cards on all pages on initialisation.
+             * that's no longer how the site works so i'm just keeping this
+             * commented for future reference
             async function initCards(sortMode) {
                   
                   for (const game in skins) {
@@ -949,6 +950,7 @@
             }
 
             initCards();
+            */
         
 
 
@@ -990,19 +992,25 @@
                   dots[n-1].className += " slideActive";
                   }
             }
-            
+            /**
+             * old openPage function. this would load ALL pages and
+             * after scaling the site to use many images this would
+             * probably cause bandwidth usage to skyrocket. the new
+             * function only loads current page in an effort to keep
+             * bandwidth down somewhat. keeping the old one for future
+             * reference
             function openPage(pageName, elmnt, color) {
                   // Hide all elements with class="container" by default
                   var i, container, tablinks;
                   container = document.getElementsByClassName("container");
                   for (i = 0; i < container.length; i++) {
-                  container[i].style.display = "none";
+                        container[i].style.display = "none";
                   }
                   
                   // Remove the background color of all tablinks/buttons
                   tablinks = document.getElementsByClassName("tablink");
                   for (i = 0; i < tablinks.length; i++) {
-                  tablinks[i].style.backgroundColor = "";
+                        tablinks[i].style.backgroundColor = "";
                   }
                   
                   // Show the specific tab content
@@ -1010,6 +1018,52 @@
                   
                   // Add the specific color to the button used to open the tab content
                   elmnt.style.backgroundColor = "#333333";
+            }
+            **/
+            async function openPage(pageName, elmnt, color) {
+                  // Hide all elements with class="container" by default
+                  var i, pageContainer, tablinks;
+                  pageContainer = document.getElementsByClassName("container");
+                  for (i = 0; i < pageContainer.length; i++) {
+                        pageContainer[i].style.display = "none";
+                  }
+
+                  // Remove the background color of all tablinks/buttons
+                  tablinks = document.getElementsByClassName("tablink");
+                  for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].style.backgroundColor = "";
+                  }
+
+                  // Show the specific tab content
+                  const selectedContainer = document.getElementById(pageName)
+                  selectedContainer.style.display = "block";
+
+                  // Add the specific color to the button used to open the tab content
+                  elmnt.style.backgroundColor = "#333333";
+
+                  // load cards only if selected page has not been loaded already
+                  if(!selectedContainer.dataset.loaded) {
+                        const games = skins[pageName];
+                        for (const category in games) {
+                              const {folder, container, items} = games[category];
+
+                              for(const item of items) {
+                                    if(!item.slides) {
+                                          item.slides = await findSlides(folder, item.title);
+                                    }
+                              }
+
+                              await renderCards(container, items, folder);
+
+                              document.querySelectorAll(`#${container} .card-slideshow`).forEach(slideshow => {
+                                    slideshow.dataset.index = 1;
+                                    showSlides(slideshow, 1);
+                              });
+                        }
+                  }
+
+                  // mark page as loaded 
+                  selectedContainer.dataset.loaded = true;
             }
             
             async function sortList(sortMode, elmnt, pageName, category) {
