@@ -128,6 +128,37 @@
                         <button class="tabsorts" onclick="sortList('date', this, 'etterna', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
                         <button class="tabsorts" onclick="sortList('title', this, 'etterna', 'skins')">Title</button>
                   </div>
+                  <br>
+
+                  <div class="filterSettings" id="etternaSkinFilters">
+                        <!-- explosions-->
+                        <div class ="filterToggles" id="etternaSkinFilterExplosion">
+                              <toggleText>Explosions</toggleText>
+                              <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                              </label>
+                        </div>
+
+                        <!-- stage extras-->
+                        <div class ="filterToggles" id="etternaSkinFilterExplosion">
+                              <toggleText>Stage extras</toggleText>
+                              <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                              </label>
+                        </div>
+
+                        <!-- original-->
+                        <div class ="filterToggles" id="etternaSkinFilterExplosion">
+                              <toggleText>Original</toggleText>
+                              <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                              </label>
+                        </div>
+
+                  </div>
                   
 
                   <div class="grid" id="etternaSkins"></div>
@@ -470,6 +501,8 @@
                         themes: {
                               folder: "etternathemes",
                               container: "etternaThemes",
+                              toggles: [],
+                              dropdowns: [],
                               items: [
                                     {
                                           title: "tweaktown",
@@ -486,12 +519,19 @@
                         skins: {
                               folder: "etternaskins",
                               container: "etternaSkins",
+                              toggles: ["explosions", "stage extras", "original"],
+                              dropdowns: [
+                                    {
+                                          keymode: [], // maybe this can automatically filled with unique "keys" entries from items
+                                          type: [] // same with this one
+                                    }
+                              ],
                               items: [
                                     {
                                           title: "Clearium",
                                           desc: "classic & customisable bar skin",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2022-01-01",
                                           type: "bar",
                                           explosions: true,
@@ -504,7 +544,7 @@
                                           title: "Oregairu_NP",
                                           desc: "customisable anime skin",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2020-12-07",
                                           type: "bar",
                                           explosions: true,
@@ -517,7 +557,7 @@
                                           title: "c_r_y_s_t_a_l_l_i_z_e_d",
                                           desc: "skin port, original by Garin",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2021-01-12",
                                           type: "bar",
                                           explosions: true,
@@ -530,7 +570,7 @@
                                           title: "GHDrum",
                                           desc: "literally guitar hero",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4", "5"],
+                                          keys: [4, 5],
                                           date: "2021-01-17",
                                           type: "bar",
                                           explosions: true,
@@ -543,7 +583,7 @@
                                           title: "DJMAXRespectV",
                                           desc: "replica, fancy effects",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2021-10-05",     // i don't remember the dates of each
                                                                   // DJMAX skin so i'm just putting them
                                                                   // one day apart each
@@ -558,7 +598,7 @@
                                           title: "GloryDay",
                                           desc: "replica, fancy effects",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2021-10-06",
                                           type: "bar",
                                           explosions: true,
@@ -571,7 +611,7 @@
                                           title: "LadymadeStar",
                                           desc: "replica, fancy effects",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2021-10-07",
                                           type: "star",
                                           explosions: true,
@@ -584,7 +624,7 @@
                                           title: "TapSonicTOP",
                                           desc: "replica, fancy effects",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2021-10-08",
                                           type: "circle",
                                           explosions: true,
@@ -597,7 +637,7 @@
                                           title: "Deemo",
                                           desc: "replica, fancy effects",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2021-10-09",
                                           type: "bar",
                                           explosions: true,
@@ -610,7 +650,7 @@
                                           title: "R_Skin_4k",
                                           desc: "skin port, original by Retsukiya",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2020-07-26",
                                           type: "bar",
                                           explosions: false,
@@ -623,7 +663,7 @@
                                           title: "Arcaea-Technika",
                                           desc: "very neon",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4", "6"],
+                                          keys: [4, 6],
                                           date: "2020-04-01",
                                           type: "bar",
                                           explosions: true,
@@ -636,7 +676,7 @@
                                           title: "Popn4kHD",
                                           desc: "silly",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: ["4"],
+                                          keys: [4],
                                           date: "2019-09-20",
                                           type: "bar",
                                           explosions: true,
@@ -654,12 +694,14 @@
                         skins: {
                               folder: "quaverskins",
                               container: "quaverSkins",
+                              toggles: ["explosions", "menus"],
+                              dropdowns: [],
                               items: [
                                     {
                                           title: "TOTOYA",
                                           desc: "car themed skin",
                                           link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2841299267",
-                                          keys: ["4", "7"],
+                                          keys: [4, 7],
                                           date: "2022-07-27",
                                           type: "bar",
                                           explosions: true,
@@ -670,7 +712,7 @@
                                           title: "strobe",
                                           desc: "simple skin",
                                           link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2791293303",
-                                          keys: ["4", "7"],
+                                          keys: [4, 7],
                                           date: "2022-08-03",
                                           type: "bar",
                                           explosions: true,
@@ -681,7 +723,7 @@
                                           title: "stribe",
                                           desc: "simple skin, no flashes",
                                           link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2789501797",
-                                          keys: ["4", "7"],
+                                          keys: [4, 7],
                                           date: "2022-08-03",
                                           type: "bar",
                                           explosions: false,
@@ -692,7 +734,7 @@
                                           title: "Clearium",
                                           desc: "classic bar skin",
                                           link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2149852369",
-                                          keys: ["4", "7"],
+                                          keys: [4, 7],
                                           date: "2022-04-18",
                                           type: "bar",
                                           explosions: true,
@@ -706,13 +748,15 @@
                         skins: {
                               folder: "osuskins",
                               container: "osuSkins",
+                              toggles: ["explosions", "osu", "taiko", "ctb", "mania"],
+                              dropdowns: [],
                               items: [
                                     {
                                           title: "Clearium",
                                           desc: "classic osu!mania skin",
                                           link: "https://osu.ppy.sh/community/forums/topics/203238?n=1",
                                           date: "2024-04-21",
-                                          keys: ["1" ,"2" ,"3" ,"4" ,"5" ,"6" ,"7" ,"8" ,"9" ,"10"],
+                                          keys: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                                           type: "bar",
                                           badges: ["1-10k", "allmode"]
                                     },
@@ -722,7 +766,7 @@
                                           desc: "typography focused skin",
                                           link: "https://osu.ppy.sh/community/forums/topics/2166823?n=1",
                                           date: "2025-12-31",
-                                          keys: ["1" ,"2" ,"3" ,"4" ,"5" ,"6" ,"7" ,"8" ,"9" ,"10"],
+                                          keys: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                                           type: "bar",
                                           badges: ["1-10k", "mania"]
                                     }
@@ -734,6 +778,8 @@
                         skins: {
                               folder: "o2jamskins",
                               container: "o2jamSkins",
+                              toggles: [],
+                              dropdowns: [],
                               items: [
                                     {
                                           title: "Clearium",
@@ -752,6 +798,8 @@
                         skins: {
                               folder: "beatorajaskins",
                               container: "beatorajaSkins",
+                              toggles: [],
+                              dropdowns: [],
                               items: [
                                     {
                                           title: "Clearium",
