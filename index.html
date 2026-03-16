@@ -1103,6 +1103,26 @@
                   }
 
             }
+
+            function buildToggles(containerId) {
+                  const container = document.getElementById(containerId);
+                  container.innerHTML = "";
+                  for(game in skins) {
+                        const categories = skins[game]
+                        for(const category in categories) {
+                              const {toggles} = categories[category]
+
+                              for(const toggle of toggles) {
+                                    //dynamic html inserts for toggles
+                                    
+                              }
+                        }
+                  }
+                  //etterna
+                  //themes/skins
+                  //
+
+            }
             /**
              * before changing openPage() to load on demand, this function
              * would load all skin cards on all pages on initialisation.
@@ -1241,6 +1261,7 @@
                               }
 
                               sortCards(items, "date")
+                              buildToggles(pageName)
 
                               await renderCards(container, items, folder);
 
