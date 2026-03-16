@@ -130,8 +130,6 @@
                   <br>
 
                   <div class="filterSettings" id="etternaSkinFilters"></div>
-                  
-
                   <div class="grid" id="etternaSkins"></div>
         
         <br>
@@ -554,9 +552,9 @@
                                           title: "stage extras", enabled: true
                                     },
 
-                                    {
-                                          title: "original", enabled: true
-                                    }
+                                    //{
+                                    //      title: "original", enabled: true
+                                    //}
                               ],
                               dropdowns: [
                                     {
@@ -1115,53 +1113,47 @@
 
 
             function flipToggleFilter(game, category, filter) {
-                  const specificToggle = skins[game][category].toggles.find(t => t.title === filter)
-                  if(specificToggle) {
-                        specificToggle.enabled = !specificToggle.enabled;
-                  }
+                  const specificToggle = skins[game][category].toggles.find(t => t.title === filter);
+                  if (specificToggle) specificToggle.enabled = !specificToggle.enabled;
 
-                  sortList(game, category)
+                  renderFilteredSorted(game, category);
             }
 
-            function setDropdownFilter(game, category, dropdown) {
-                  const specificDropdown = skins[game][category].dropdowns.find(t => t.title === dropdown)
-                  if(specificDropdown) {
-                        specificDropdown.enabled = !specificDropdown.enabled;
-                  }
+            function setDropdownFilter(game, category, dropdown, value) {
+                  const specificDropdown = skins[game][category].dropdowns.find(d => d.title === dropdown);
+                  if (specificDropdown) specificDropdown.enabled = value;
 
+                  renderFilteredSorted(game, category);
+            }
+
+            function sortButtonClick(game, category, sortMode) {
+                  renderFilteredSorted(game, category, sortMode);
             }
 
             function buildToggles(game) {
                   const container = document.getElementById(`${game}SkinFilters`);
-                  const subContainer = container.querySelector(".filterSettings")
                   container.innerHTML = "";
-                  //console.log(containerId)
 
-                  const categories = skins[game]
-                  for(const category in categories) {
-                        const {toggles} = categories[category]
+                  const categories = skins[game];
+                  for (const category in categories) {
+                        const { toggles } = categories[category];
+                        if (!toggles || toggles.length === 0) continue;
 
-                        for(const toggle of toggles) {
-                              if(!toggles || toggles.length === 0) continue;  // continue skips current iteration
-                                                                              //but keeps going afterwards
+                        for (const toggle of toggles) {
+                              const titleFormatted = toggle.title.charAt(0).toUpperCase() + toggle.title.slice(1);
 
-                              const titleFormatted = toggle.title.charAt(0).toUpperCase() + toggle.title.slice(1)
-                              // dynamic html inserts for toggles
                               container.innerHTML += `
                               <div class="filterToggles" id="${game}SkinFilter${toggle.title}">
                                     <toggleText>${titleFormatted}</toggleText>
                                     <label class="switch">
                                           <input type="checkbox" ${toggle.enabled ? "checked" : ""} 
-                                          onChange="flipToggleFilter('${game}', '${category}', '$(toggle.title)')">
+                                          onChange="flipToggleFilter('${game}', '${category}', '${toggle.title}')">
                                           <span class="slider round"></span>
                                     </label>
                               </div>
-                        `
+                              `;
                         }
-
-                        //console.log(container.innerHTML);
                   }
-
             }
             /**
              * before changing openPage() to load on demand, this function
@@ -1300,52 +1292,46 @@
                                     }
                               }
 
-                              sortCards(items, "date")
-                              buildToggles(pageName, container)
+                              buildToggles(pageName)
 
-                              await renderCards(container, items, folder);
-
-                              document.querySelectorAll(`#${container} .card-slideshow`).forEach(slideshow => {
-                                    slideshow.dataset.index = 1;
-                                    showSlides(slideshow, 1);
-                              });
+                              await renderFilteredSorted(pageName, category, "date");
                         }
                   }
 
                   // mark page as loaded 
                   selectedContainer.dataset.loaded = true;
             }
-            
-            async function sortList(sortMode, elmnt, pageName, category) {
-                  var i, tabsorts;
-                  
-                  // remove bg colour
-                  tabsorts = document.getElementsByClassName("tabsorts");
-                  for(i = 0; i < tabsorts.length; i++) {
-                        tabsorts[i].style.backgroundColor = "";
 
-                  }
+            async function renderFilteredSorted(game, category, sortMode = "date") {
+                  const { folder, container, items, toggles } = skins[game][category];
+                  const containerElmnt = document.getElementById(container);
+                  containerElmnt.innerHTML = "";
 
-                  
+                  const filteredItems = items.filter(item => {
+                        for (const toggle of toggles) {
+                              const property = toggle.title.replace(" ", "_");
+                              if (!toggle.enabled && item[property]) return false;
+                        }
+                        return true;
+                  });
 
-                  const { folder, container, items } = skins[pageName][category];
+                  sortCards(filteredItems, sortMode);
 
-                  // clear any existing cards html in the container when changing sort mode,
-                  // otherwise the existing list just keeps stacking.
-                  // also 'container' is a string here so grab the actual element
-                  const containerElement = document.getElementById(container);
-                  containerElement.innerHTML = "";
+                  await renderCards(container, filteredItems, folder);
 
-                  elmnt.style.backgroundColor = "#333333"
-                  sortCards(items, sortMode)
-                  await renderCards(container, items, folder) 
-                  
-
-                  // slides will be invisible if we don't do the same initialisation as in initCards()
                   document.querySelectorAll(`#${container} .card-slideshow`).forEach(slideshow => {
                         slideshow.dataset.index = 1;
                         showSlides(slideshow, 1);
-                  })
+                  });
+                  }
+            
+            function sortList(sortMode, elmnt, game, category) {
+                  const tabsorts = document.getElementsByClassName("tabsorts");
+                  for (const btn of tabsorts) btn.style.backgroundColor = "";
+
+                  elmnt.style.backgroundColor = "#333333";
+
+                  renderFilteredSorted(game, category, sortMode);
             }
 
             // quick notice div insertion
