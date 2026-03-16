@@ -1106,16 +1106,29 @@
 
             function buildToggles(containerId) {
                   const container = document.getElementById(containerId);
+                  const subContainer = 
                   container.innerHTML = "";
                   for(game in skins) {
                         const categories = skins[game]
                         for(const category in categories) {
                               const {toggles} = categories[category]
 
+                              
+
                               for(const toggle of toggles) {
                                     //dynamic html inserts for toggles
-                                    
+                                    container.innerHTML += `
+                                    <div class="filterToggles" id="etternaSkinFilter${toggle.title}">
+                                          <toggleText>${toggle.title}</toggleText>
+                                          <label class="switch">
+                                                <input type="checkbox" checked>
+                                                <span class="slider round"></span>
+                                          </label>
+                                    </div>
+                              `
                               }
+
+                              console.log(container.innerHTML);
                         }
                   }
                   //etterna
