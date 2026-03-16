@@ -115,7 +115,7 @@
         <br><br><br><br>
             <h1>Themes</h1>
                   <div class="noticeWrapper" id="etternaThemeNotice"></div>
-                  <br><br>
+                  <br>
                   <div class="grid" id="etternaThemes"></div>
         <br><br><br>
             <h1>Skins</h1>
@@ -124,41 +124,12 @@
 
                   <div class="sortButtons" id="etternaSkinSorts">
                         <sortHeader>Sort</sortHeader>
-                        
                         <button class="tabsorts" onclick="sortList('date', this, 'etterna', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
                         <button class="tabsorts" onclick="sortList('title', this, 'etterna', 'skins')">Title</button>
                   </div>
                   <br>
 
-                  <div class="filterSettings" id="etternaSkinFilters">
-                        <!-- explosions-->
-                        <div class ="filterToggles" id="etternaSkinFilterExplosion">
-                              <toggleText>Explosions</toggleText>
-                              <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                              </label>
-                        </div>
-
-                        <!-- stage extras-->
-                        <div class ="filterToggles" id="etternaSkinFilterExplosion">
-                              <toggleText>Stage extras</toggleText>
-                              <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                              </label>
-                        </div>
-
-                        <!-- original-->
-                        <div class ="filterToggles" id="etternaSkinFilterExplosion">
-                              <toggleText>Original</toggleText>
-                              <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                              </label>
-                        </div>
-
-                  </div>
+                  <div class="filterSettings" id="etternaSkinFilters"></div>
                   
 
                   <div class="grid" id="etternaSkins"></div>
@@ -185,7 +156,18 @@
         <br>
         <br>
             <h1>Skins</h1>
-                <div class="grid" id="quaverSkins"></div>
+                  <div class="noticeWrapper" id="quaverSkinNotice"></div>
+                  <br>
+
+                  <div class="sortButtons" id="quaverSkinSorts">
+                        <sortHeader>Sort</sortHeader>             
+                        <button class="tabsorts" onclick="sortList('date', this, 'quaver', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+                        <button class="tabsorts" onclick="sortList('title', this, 'quaver', 'skins')">Title</button>
+                  </div>
+                  <br>
+
+                  <div class="filterSettings" id="quaverSkinFilters"></div>
+                  <div class="grid" id="quaverSkins"></div>
       
       
       
@@ -248,7 +230,18 @@
         <br>
         <br>
             <h1>Skins</h1>
-                <div class="grid" id="osuSkins"></div>
+                  <div class="noticeWrapper" id="osuSkinNotice"></div>
+                  <br>
+
+                  <div class="sortButtons" id="osuSkinSorts">
+                        <sortHeader>Sort</sortHeader>             
+                        <button class="tabsorts" onclick="sortList('date', this, 'osu', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+                        <button class="tabsorts" onclick="sortList('title', this, 'osu', 'skins')">Title</button>
+                  </div>
+                  <br>
+
+                  <div class="filterSettings" id="osuSkinFilters"></div>
+                  <div class="grid" id="osuSkins"></div>
         
       
         
@@ -310,7 +303,18 @@
         <br>
         <br>
             <h1>Skins</h1>
-                <div class="grid" id="o2jamSkins"></div>
+                  <div class="noticeWrapper" id="o2jamSkinNotice"></div>
+                  <br>
+
+                  <div class="sortButtons" id="o2jamSkinSorts">
+                        <sortHeader>Sort</sortHeader>             
+                        <button class="tabsorts" onclick="sortList('date', this, 'o2jam', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+                        <button class="tabsorts" onclick="sortList('title', this, 'o2jam', 'skins')">Title</button>
+                  </div>
+                  <br>
+
+                  <div class="filterSettings" id="o2jamSkinFilters"></div>
+                  <div class="grid" id="o2jamSkins"></div>
       
       
       
@@ -372,7 +376,18 @@
         <br>
         <br>
             <h1>Skins</h1>
-                <div class="grid" id="beatorajaSkins"></div>
+                  <div class="noticeWrapper" id="beatorajaSkinNotice"></div>
+                  <br>
+
+                  <div class="sortButtons" id="beatorajaSkinSorts">
+                        <sortHeader>Sort</sortHeader>             
+                        <button class="tabsorts" onclick="sortList('date', this, 'beatoraja', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+                        <button class="tabsorts" onclick="sortList('title', this, 'beatoraja', 'skins')">Title</button>
+                  </div>
+                  <br>
+
+                  <div class="filterSettings" id="beatorajaSkinFilters"></div>
+                  <div class="grid" id="beatorajaSkins"></div>
       
       
       
@@ -437,6 +452,17 @@
         <br>
         <br>
             <h1>Skins</h1>
+            <div class="noticeWrapper" id="otherSkinNotice"></div>
+                  <br>
+
+                  <div class="sortButtons" id="otherSkinSorts">
+                        <sortHeader>Sort</sortHeader>             
+                        <button class="tabsorts" onclick="sortList('date', this, 'other', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+                        <button class="tabsorts" onclick="sortList('title', this, 'other', 'skins')">Title</button>
+                  </div>
+                  <br>
+
+                  <div class="filterSettings" id="otherSkinFilters"></div>
                 <div class="grid">
                 </div>
       
@@ -825,7 +851,6 @@
                                           items: [],
                                     },
                               ],
-                              toggles: ["explosions", "osu", "taiko", "ctb", "mania"],
                               items: [
                                     {
                                           title: "Clearium",
@@ -1094,6 +1119,8 @@
                   if(specificToggle) {
                         specificToggle.enabled = !specificToggle.enabled;
                   }
+
+                  sortList(game, category)
             }
 
             function setDropdownFilter(game, category, dropdown) {
@@ -1104,36 +1131,36 @@
 
             }
 
-            function buildToggles(containerId) {
-                  const container = document.getElementById(containerId);
-                  const subContainer = 
+            function buildToggles(game) {
+                  const container = document.getElementById(`${game}SkinFilters`);
+                  const subContainer = container.querySelector(".filterSettings")
                   container.innerHTML = "";
-                  for(game in skins) {
-                        const categories = skins[game]
-                        for(const category in categories) {
-                              const {toggles} = categories[category]
+                  //console.log(containerId)
 
-                              
+                  const categories = skins[game]
+                  for(const category in categories) {
+                        const {toggles} = categories[category]
 
-                              for(const toggle of toggles) {
-                                    //dynamic html inserts for toggles
-                                    container.innerHTML += `
-                                    <div class="filterToggles" id="etternaSkinFilter${toggle.title}">
-                                          <toggleText>${toggle.title}</toggleText>
-                                          <label class="switch">
-                                                <input type="checkbox" checked>
-                                                <span class="slider round"></span>
-                                          </label>
-                                    </div>
-                              `
-                              }
+                        for(const toggle of toggles) {
+                              if(!toggles || toggles.length === 0) continue;  // continue skips current iteration
+                                                                              //but keeps going afterwards
 
-                              console.log(container.innerHTML);
+                              const titleFormatted = toggle.title.charAt(0).toUpperCase() + toggle.title.slice(1)
+                              // dynamic html inserts for toggles
+                              container.innerHTML += `
+                              <div class="filterToggles" id="${game}SkinFilter${toggle.title}">
+                                    <toggleText>${titleFormatted}</toggleText>
+                                    <label class="switch">
+                                          <input type="checkbox" ${toggle.enabled ? "checked" : ""} 
+                                          onChange="flipToggleFilter('${game}', '${category}', '$(toggle.title)')">
+                                          <span class="slider round"></span>
+                                    </label>
+                              </div>
+                        `
                         }
+
+                        //console.log(container.innerHTML);
                   }
-                  //etterna
-                  //themes/skins
-                  //
 
             }
             /**
@@ -1274,7 +1301,7 @@
                               }
 
                               sortCards(items, "date")
-                              buildToggles(pageName)
+                              buildToggles(pageName, container)
 
                               await renderCards(container, items, folder);
 
@@ -1365,8 +1392,8 @@
             // you refresh
             history.scrollRestoration = "manual";
 
-            $(window).on('beforeunload', function(){
-                  $(window).scrollTop(0);
+            window.addEventListener("beforeunload", function () {
+                  window.scrollTo(0, 0);
             });
 
         </script>
