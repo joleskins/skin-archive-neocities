@@ -302,6 +302,7 @@ body {
         .filterToggles {
           display: flex;
           align-items: center;
+          
         }
 
         .switch {

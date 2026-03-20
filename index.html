@@ -124,8 +124,17 @@
 
                   <div class="sortButtons" id="etternaSkinSorts">
                         <sortHeader>Sort</sortHeader>
-                        <button class="tabsorts" onclick="sortList('date', this, 'etterna', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
-                        <button class="tabsorts" onclick="sortList('title', this, 'etterna', 'skins')">Title</button>
+                        <button     class="tabsorts"
+                                    data-game="etterna"
+                                    data-category="skins"
+                                    data-sort="date"
+                                    onclick="sortList('date', this, 'etterna', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+
+                        <button     class="tabsorts"
+                                    data-game="etterna"
+                                    data-category="skins"
+                                    data-sort="title"
+                                    onclick="sortList('title', this, 'etterna', 'skins')">Title</button>
                   </div>
                   <br>
 
@@ -159,8 +168,16 @@
 
                   <div class="sortButtons" id="quaverSkinSorts">
                         <sortHeader>Sort</sortHeader>             
-                        <button class="tabsorts" onclick="sortList('date', this, 'quaver', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
-                        <button class="tabsorts" onclick="sortList('title', this, 'quaver', 'skins')">Title</button>
+                        <button     class="tabsorts"
+                                    data-game="quaver"
+                                    data-category="skins"
+                                    data-sort="date"
+                                    onclick="sortList('date', this, 'quaver', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+                        <button     class="tabsorts"
+                                    data-game="quaver"
+                                    data-category="skins"
+                                    data-sort="title"
+                                    onclick="sortList('title', this, 'quaver', 'skins')">Title</button>
                   </div>
                   <br>
 
@@ -233,8 +250,16 @@
 
                   <div class="sortButtons" id="osuSkinSorts">
                         <sortHeader>Sort</sortHeader>             
-                        <button class="tabsorts" onclick="sortList('date', this, 'osu', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
-                        <button class="tabsorts" onclick="sortList('title', this, 'osu', 'skins')">Title</button>
+                        <button     class="tabsorts"
+                                    data-game="osu"
+                                    data-category="skins"
+                                    data-sort="date"
+                                    onclick="sortList('date', this, 'osu', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+                        <button     class="tabsorts"
+                                    data-game="osu"
+                                    data-category="skins"
+                                    data-sort="title"
+                                    onclick="sortList('title', this, 'osu', 'skins')">Title</button>
                   </div>
                   <br>
 
@@ -306,8 +331,16 @@
 
                   <div class="sortButtons" id="o2jamSkinSorts">
                         <sortHeader>Sort</sortHeader>             
-                        <button class="tabsorts" onclick="sortList('date', this, 'o2jam', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
-                        <button class="tabsorts" onclick="sortList('title', this, 'o2jam', 'skins')">Title</button>
+                        <button     class="tabsorts"
+                                    data-game="o2jam"
+                                    data-category="skins"
+                                    data-sort="date"
+                                    onclick="sortList('date', this, 'o2jam', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+                        <button     class="tabsorts"
+                                    data-game="o2jam"
+                                    data-category="skins"
+                                    data-sort="title"
+                                    onclick="sortList('title', this, 'o2jam', 'skins')">Title</button>
                   </div>
                   <br>
 
@@ -379,8 +412,16 @@
 
                   <div class="sortButtons" id="beatorajaSkinSorts">
                         <sortHeader>Sort</sortHeader>             
-                        <button class="tabsorts" onclick="sortList('date', this, 'beatoraja', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
-                        <button class="tabsorts" onclick="sortList('title', this, 'beatoraja', 'skins')">Title</button>
+                        <button     class="tabsorts"
+                                    data-game="beatoraja"
+                                    data-category="skins"
+                                    data-sort="date"
+                                    onclick="sortList('date', this, 'beatoraja', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+                        <button     class="tabsorts"
+                                    data-game="beatoraja"
+                                    data-category="skins"
+                                    data-sort="title"
+                                    onclick="sortList('title', this, 'beatoraja', 'skins')">Title</button>
                   </div>
                   <br>
 
@@ -454,9 +495,9 @@
                   <br>
 
                   <div class="sortButtons" id="otherSkinSorts">
-                        <sortHeader>Sort</sortHeader>             
+                        <!--<sortHeader>Sort</sortHeader>             
                         <button class="tabsorts" onclick="sortList('date', this, 'other', 'skins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
-                        <button class="tabsorts" onclick="sortList('title', this, 'other', 'skins')">Title</button>
+                        <button class="tabsorts" onclick="sortList('title', this, 'other', 'skins')">Title</button>-->
                   </div>
                   <br>
 
@@ -1116,16 +1157,19 @@
                   const specificToggle = skins[game][category].toggles.find(t => t.title === filter);
                   if (specificToggle) specificToggle.enabled = !specificToggle.enabled;
 
-                  renderFilteredSorted(game, category);
+                  const sortMode = activeSort?.[game]?.[category] || "date";
+                  renderFilteredSorted(game, category, sortMode);
             }
 
             function setDropdownFilter(game, category, dropdown, value) {
                   const specificDropdown = skins[game][category].dropdowns.find(d => d.title === dropdown);
                   if (specificDropdown) specificDropdown.enabled = value;
 
-                  renderFilteredSorted(game, category);
+                  const sortMode = activeSort?.[game]?.[category] || "date";
+                  renderFilteredSorted(game, category, sortMode);
             }
 
+            
             function sortButtonClick(game, category, sortMode) {
                   renderFilteredSorted(game, category, sortMode);
             }
@@ -1153,6 +1197,27 @@
                               </div>
                               `;
                         }
+                  }
+            }
+
+            function updateSortHighlight(game, category) {
+                  const currentSort = activeSort?.[game]?.[category] || "date";
+
+                  const buttons = document.querySelectorAll(".tabsorts");
+
+                  for(const button of buttons) {
+                        button.style.backgroundColor = "";
+
+                        if(   button.dataset.game === game &&
+                              button.dataset.category === category &&
+                              button.dataset.sort === currentSort
+                              ) {
+                              //apply colour to correct current sort button
+                              button.style.backgroundColor = "#333333";
+                        }
+
+
+                              
                   }
             }
             /**
@@ -1294,12 +1359,14 @@
 
                               buildToggles(pageName)
 
-                              await renderFilteredSorted(pageName, category, "date");
+                              const sortMode = activeSort?.[pageName]?.[category] || "date";
+                              await renderFilteredSorted(pageName, category, sortMode);
                         }
                   }
 
                   // mark page as loaded 
                   selectedContainer.dataset.loaded = true;
+
             }
 
             async function renderFilteredSorted(game, category, sortMode = "date") {
@@ -1323,13 +1390,22 @@
                         slideshow.dataset.index = 1;
                         showSlides(slideshow, 1);
                   });
+
+                  updateSortHighlight(game, category);
                   }
             
+            const activeSort = {};
             function sortList(sortMode, elmnt, game, category) {
                   const tabsorts = document.getElementsByClassName("tabsorts");
                   for (const btn of tabsorts) btn.style.backgroundColor = "";
 
                   elmnt.style.backgroundColor = "#333333";
+
+                  //save current sort so it doesn't get overriden
+                  if(!activeSort[game]) {
+                        activeSort[game] = {};
+                  }
+                  activeSort[game][category] = sortMode;
 
                   renderFilteredSorted(game, category, sortMode);
             }
