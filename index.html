@@ -1176,7 +1176,6 @@
 
             function buildToggles(game) {
                   const container = document.getElementById(`${game}SkinFilters`);
-                  container.innerHTML = "";
 
                   const categories = skins[game];
                   for (const category in categories) {
@@ -1194,6 +1193,32 @@
                                           onChange="flipToggleFilter('${game}', '${category}', '${toggle.title}')">
                                           <span class="slider round"></span>
                                     </label>
+                              </div>
+                              `;
+                        }
+                  }
+            }
+
+            function buildDropdowns(game) {
+                  const container = document.getElementById(`${game}SkinFilters`);
+
+                  const categories = skins[game];
+
+                  for(const category in categories) {
+                        const {dropdowns} = categories[category];
+                        if(!dropdowns || dropdowns.length === 0) continue;
+
+                        for(const dropdown of dropdowns) {
+                              const titleFormatted = dropdown.title.charAt(0).toUpperCase() + dropdown.title.slice(1);
+
+                              container.innerHTML += `
+                              <div class="filterDropdown" id="${game}SkinDropdown${dropdown.title}">
+                                    <select onchange="setDropdownFilter('${game}', '${category}', '${dropdown.title}', this.value)">
+                                          <option value="">All</option>
+                                          ${dropdown.items.map(item => `
+                                                <option value="${item}">${item}</option>
+                                          `).join("")}
+                                    </select>
                               </div>
                               `;
                         }
@@ -1356,8 +1381,10 @@
                                           item.slides = await findSlides(folder, item.title);
                                     }
                               }
-
+                              const filterContainer = document.getElementById(`${pageName}SkinFilters`);
+                              filterContainer.innerHTML = "";
                               buildToggles(pageName)
+                              buildDropdowns(pageName)
 
                               const sortMode = activeSort?.[pageName]?.[category] || "date";
                               await renderFilteredSorted(pageName, category, sortMode);
@@ -1370,7 +1397,7 @@
             }
 
             async function renderFilteredSorted(game, category, sortMode = "date") {
-                  const { folder, container, items, toggles } = skins[game][category];
+                  const { folder, container, items, toggles, dropdowns } = skins[game][category];
                   const containerElmnt = document.getElementById(container);
                   containerElmnt.innerHTML = "";
 
@@ -1378,6 +1405,18 @@
                         for (const toggle of toggles) {
                               const property = toggle.title.replace(" ", "_");
                               if (!toggle.enabled && item[property]) return false;
+                        }
+
+                        for(const dropdown of dropdowns) {
+                              if(!dropdown.enabled) continue;
+
+                              const value = item[dropdown.source];
+
+                              if(Array.isArray(value)) {
+                                    if(!value.includes(dropdown.enabled)) return false;
+                              } else {
+                                    if(value !== dropdown.enabled) return false;
+                              }
                         }
                         return true;
                   });
