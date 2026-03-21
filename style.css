@@ -88,6 +88,7 @@ body {
           align-items: center;
           margin: 0 8px 0 8px;
           line-height: 1;
+          transform: translateY(1px);
         }
         .notice {
           font-size: 1em;
