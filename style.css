@@ -156,6 +156,7 @@ body {
             height: auto;
             border-radius: 6px 6px 10px 10px;
             transition: opacity 0.3s ease-in-out;
+            cursor: url("cursor_hover.svg"), auto;
         }
         .card-slideshow .placeholder {
           width: 100%;
