@@ -602,7 +602,7 @@
                                           title: "keymode",
                                           source: "keys",   // source determines where in the skins
                                                             // data to look for dropdown options
-
+                                          label: "Keymodes",
                                           enabled: null,    // enabled is null instead of a bool
                                                             // because it was easier for forcing
                                                             // a single state.. apparently?                         
@@ -613,6 +613,7 @@
                                     {
                                           title: "type",
                                           source: "type",
+                                          label: "Type",
                                           enabled: null,
                                           items: [],
                                     },
@@ -663,11 +664,11 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4, 5],
                                           date: "2021-01-17",
-                                          type: "bar",
+                                          type: "circle",
                                           explosions: true,
                                           stage_extras: true,
                                           original: true,
-                                          badges: ["4k", "tildeath", "etterna703"]
+                                          badges: ["4k", "tildeath", "3d", "etterna703"]
                                     },
                                     
                                     {
@@ -798,6 +799,7 @@
                                     {
                                           title: "type",
                                           source: "type",
+                                          label: "Type",
                                           enabled: null,
                                           items: [],
                                     },
@@ -858,27 +860,12 @@
                                     {
                                           title: "explosions", enabled: true
                                     },
-
-                                    {
-                                          title: "osu", enabled: true
-                                    },
-
-                                    {
-                                          title: "taiko", enabled: true
-                                    },
-
-                                    {
-                                          title: "ctb", enabled: true
-                                    },
-
-                                    {
-                                          title: "mania", enabled: true
-                                    },
                               ],
                               dropdowns: [
                                     {
                                           title: "keymode",
-                                          source: "keys",    
+                                          source: "keys",
+                                          label: "Keymode",    
                                           enabled: null,                        
                                           items: []
                                     },
@@ -886,9 +873,18 @@
                                     {
                                           title: "type",
                                           source: "type",
+                                          label: "Type",
                                           enabled: null,
                                           items: [],
                                     },
+
+                                    {
+                                          title: "mode",
+                                          source: "modes",
+                                          label: "Mode",
+                                          enabled: null,
+                                          items: [],
+                                    }
                               ],
                               items: [
                                     {
@@ -897,6 +893,7 @@
                                           link: "https://osu.ppy.sh/community/forums/topics/203238?n=1",
                                           date: "2024-04-21",
                                           keys: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                                          modes: ["osu", "taiko", "ctb", "mania"],
                                           type: "bar",
                                           badges: ["1-10k", "allmode"]
                                     },
@@ -907,6 +904,7 @@
                                           link: "https://osu.ppy.sh/community/forums/topics/2166823?n=1",
                                           date: "2025-12-31",
                                           keys: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                                          modes: ["mania"],
                                           type: "bar",
                                           badges: ["1-10k", "mania"]
                                     }
@@ -1081,7 +1079,7 @@
                   let i = 1;
 
                   while (true) {
-                        const path = `${folder}/${title}/${i}.png`;
+                        const path = `${folder}/${title}/${i}.jpg`;
 
                         const exists = await new Promise(resolve => {
                               const img = new Image();
@@ -1149,7 +1147,7 @@
                   }
             }
             initDropdowns()
-            console.log(skins)
+            //console.log(skins)
 
 
 
@@ -1164,6 +1162,33 @@
             function setDropdownFilter(game, category, dropdown, value) {
                   const specificDropdown = skins[game][category].dropdowns.find(d => d.title === dropdown);
                   if (specificDropdown) specificDropdown.enabled = value;
+
+                  const specificSelector = document.querySelector(`#${game}SkinDropdown${dropdown} select`);
+
+                  if(specificSelector) {
+                        if(value ==="") {
+                              specificSelector.classList.remove("active");
+                        } else {
+                              specificSelector.classList.add("active");
+                        }
+                  }
+
+                  if(!specificSelector) {
+                        return
+                  }
+
+                  
+
+                  //show "All" text when selecting dropdown, instead of the specific label shown by default
+                  const allOption = specificSelector.querySelector('option[value=""]');
+                  if(allOption) {
+                        allOption.textContent = "All"
+                  }
+
+                  //if the top option is selected, show the specific dropdown label
+                  if(value === "" && specificDropdown?.label) {
+                        allOption.textContent = specificDropdown.label + "⠀"; //SCUFFED BLANK UNICODE CHARACTER WORKAROUND SINCE SPACES CAN'T JUST BE INSERTED IN HTML
+                  }
 
                   const sortMode = activeSort?.[game]?.[category] || "date";
                   renderFilteredSorted(game, category, sortMode);
@@ -1209,15 +1234,22 @@
                         if(!dropdowns || dropdowns.length === 0) continue;
 
                         for(const dropdown of dropdowns) {
-                              const titleFormatted = dropdown.title.charAt(0).toUpperCase() + dropdown.title.slice(1);
+                              const titleFormatted = dropdown.title.charAt(0).toUpperCase() + dropdown.title.slice(1)
+                              const labelText = dropdown.label || "All"
 
                               container.innerHTML += `
-                              <div class="filterDropdown" id="${game}SkinDropdown${dropdown.title}">
+                              <div class="filterDropdowns" id="${game}SkinDropdown${dropdown.title}">
                                     <select onchange="setDropdownFilter('${game}', '${category}', '${dropdown.title}', this.value)">
-                                          <option value="">All</option>
-                                          ${dropdown.items.map(item => `
-                                                <option value="${item}">${item}</option>
-                                          `).join("")}
+                                          <option value="">${labelText}⠀</option><!--THERE IS A BLANK UNICODE CHARACTER AFTER LABEL TEXT BECAUSE I CAN'T JUST PUT A SPACE-->
+                                          ${dropdown.items.map(item => {
+                                                let label = item;
+
+                                                if(dropdown.source === "keys") {
+                                                      label = item + "k";
+                                                }
+                                                return `<option value="${item}">${label}</option>` //ALSO BLANK UNICODE CHARACTER HERE!!
+                                          }).join("")}
+                                          }
                                     </select>
                               </div>
                               `;
@@ -1412,8 +1444,10 @@
 
                               const value = item[dropdown.source];
 
+                              const filterValue = isNaN(dropdown.enabled) ? dropdown.enabled : Number(dropdown.enabled);
+
                               if(Array.isArray(value)) {
-                                    if(!value.includes(dropdown.enabled)) return false;
+                                    if(!value.includes(filterValue)) return false;
                               } else {
                                     if(value !== dropdown.enabled) return false;
                               }
