@@ -83,11 +83,11 @@ body {
         }
         toggleText {
           font-size: 0.8em;
-          display: inline-block;
+          display: inline-flex;
           text-align: left;
+          align-items: center;
           margin: 0 8px 0 8px;
           line-height: 1;
-          vertical-align: middle;
         }
         .notice {
           font-size: 1em;
@@ -300,8 +300,10 @@ body {
         }
 
         .filterToggles {
+          font-size: 1em;
           display: flex;
           align-items: center;
+          margin: 0 0 0 0;
           
         }
 
