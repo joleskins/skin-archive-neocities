@@ -151,6 +151,16 @@ body {
             opacity: 0.75;
             position: relative;
         }
+        .card-slideshow.unreleased {
+          opacity: 0.25;
+        }
+        .unreleasedText {
+          position: absolute;
+          top: 40%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 1.5em;
+        }
         .card-slideshow img {
             width: 100%;
             height: auto;
@@ -184,7 +194,7 @@ body {
         }
         .slidePrev, .slideNext {
             position: absolute;       /* fix relative to slideshow container */
-            top: 50%;                 /* vertical center */
+            top: 40%;                 /* vertical center */
             transform: translateY(-50%);
             width: auto;
             padding: 16px;

@@ -46,6 +46,10 @@
       <h3>Hi!</h3>
       <p>Find stuff for your game of choice here🎊</p><br>
       <p>changelog<br>
+            <br>23/3/2026: added unreleased property for cards. now the opacity lowers and text is shown to indicate unreleased status. mainly for tweaktown c:
+            <br>
+            <br>21/3/2026: working filter toggles and dropdowns added. also compressed images
+            <br>
             <br>15/3/2026: added "recent" and "title" sorting modes on the etterna skins section. will come to the other pages later. i also want to add a few filtering options on top of sorting. soon(TM).
             also made images only load for the current page so the entire damn site doesn't load on the home page lol
             <br>
@@ -571,10 +575,11 @@
                               items: [
                                     {
                                           title: "tweaktown",
-                                          desc: "Skinnable Etterna theme (unreleased!)",
+                                          desc: "Skinnable Etterna theme",
                                           link: "https://github.com/joleskins/tweaktown",
                                           // date must be formatted as YYYY-MM-DD sadly :(
                                           date: "2026-01-01",
+                                          released: false,
                                           aspect_ratios: ["16:9"],
                                           badges: ["etterna744"]
                                     }
@@ -602,7 +607,7 @@
                                           title: "keymode",
                                           source: "keys",   // source determines where in the skins
                                                             // data to look for dropdown options
-                                          label: "Keymodes",
+                                          label: "Keymode",
                                           enabled: null,    // enabled is null instead of a bool
                                                             // because it was easier for forcing
                                                             // a single state.. apparently?                         
@@ -625,6 +630,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4],
                                           date: "2022-01-01",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
                                           stage_extras: true,
@@ -638,6 +644,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4],
                                           date: "2020-12-07",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
                                           stage_extras: true,
@@ -651,6 +658,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4],
                                           date: "2021-01-12",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
                                           stage_extras: true,
@@ -664,6 +672,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4, 5],
                                           date: "2021-01-17",
+                                          released: true,
                                           type: "circle",
                                           explosions: true,
                                           stage_extras: true,
@@ -679,6 +688,7 @@
                                           date: "2021-10-05",     // i don't remember the dates of each
                                                                   // DJMAX skin so i'm just putting them
                                                                   // one day apart each
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
                                           stage_extras: true,
@@ -692,6 +702,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4],
                                           date: "2021-10-06",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
                                           stage_extras: true,
@@ -705,6 +716,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4],
                                           date: "2021-10-07",
+                                          released: true,
                                           type: "star",
                                           explosions: true,
                                           stage_extras: true,
@@ -718,6 +730,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4],
                                           date: "2021-10-08",
+                                          released: true,
                                           type: "circle",
                                           explosions: true,
                                           stage_extras: true,
@@ -731,6 +744,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4],
                                           date: "2021-10-09",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
                                           stage_extras: true,
@@ -744,6 +758,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4],
                                           date: "2020-07-26",
+                                          released: true,
                                           type: "bar",
                                           explosions: false,
                                           stage_extras: true,
@@ -757,6 +772,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4, 6],
                                           date: "2020-04-01",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
                                           stage_extras: false,
@@ -770,6 +786,7 @@
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           keys: [4],
                                           date: "2019-09-20",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
                                           stage_extras: true,
@@ -811,8 +828,10 @@
                                           link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2841299267",
                                           keys: [4, 7],
                                           date: "2022-07-27",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
+                                          menus: true,
                                           badges: ["4k", "7k", "snaps"]
                                     },
 
@@ -822,8 +841,10 @@
                                           link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2791293303",
                                           keys: [4, 7],
                                           date: "2022-08-03",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
+                                          menus: true,
                                           badges: ["4k", "7k"]
                                     },
 
@@ -833,8 +854,10 @@
                                           link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2789501797",
                                           keys: [4, 7],
                                           date: "2022-08-03",
+                                          released: true,
                                           type: "bar",
                                           explosions: false,
+                                          menus: true,
                                           badges: ["4k", "7k"]
                                     },
 
@@ -844,8 +867,10 @@
                                           link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2149852369",
                                           keys: [4, 7],
                                           date: "2022-04-18",
+                                          released: true,
                                           type: "bar",
                                           explosions: true,
+                                          menus: false,
                                           badges: ["4k", "7k"]
                                     }
                               ]
@@ -892,6 +917,7 @@
                                           desc: "classic osu!mania skin",
                                           link: "https://osu.ppy.sh/community/forums/topics/203238?n=1",
                                           date: "2024-04-21",
+                                          released: true,
                                           keys: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                                           modes: ["osu", "taiko", "ctb", "mania"],
                                           type: "bar",
@@ -904,6 +930,7 @@
                                           desc: "typography focused skin",
                                           link: "https://osu.ppy.sh/community/forums/topics/2166823?n=1",
                                           date: "2025-12-31",
+                                          released: true,
                                           keys: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                                           modes: ["mania"],
                                           type: "bar",
@@ -926,6 +953,7 @@
                                           desc: "o2GraphicEXT support",
                                           link: "https://www.mediafire.com/file/5bsed8umtomd33g/Clearium_o2.zip/file",
                                           date: "2025-06-07",
+                                          released: true,
                                           type: "bar",
                                           resolution: "1920x1080",
                                           badges: ["o2graphic", "1920x1080"]
@@ -946,6 +974,7 @@
                                           desc: "7+1k, scuffed skin",
                                           link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                                           date: "2021-04-15",
+                                          released: true,
                                           type: "bar",
                                           resolution: "1920x1080",
                                           badges: ["7plus1k", "1920x1080"]
@@ -1030,18 +1059,32 @@
                         `;
                   }
                   
+                  // change to a different class if unreleased.
+                  // this changes the opacity through the style
+                  // of the "unreleased" css class
+                  let unreleasedClassAppend, unreleasedHTML = "";
+                  if(!data.released) {
+                        unreleasedClassAppend = "unreleased"
+
+                        unreleasedHTML = `
+                        <div class="unreleasedText">unreleased</div>
+                        `;
+                  }
+
 
                   return `
-                  <div class="card-slideshow">
+                  <div class="card-slideshow ${unreleasedClassAppend}">
 
                         ${slideshowHTML}
 
-                              <br>
-                              <cardHeader>${data.title}</cardHeader>
-                              <br>
-                              <cardDescription>${data.desc}</cardDescription>
-                              <br><br>
-                              ${badgesHTML}
+                        ${unreleasedHTML}
+
+                        <br>
+                        <cardHeader>${data.title}</cardHeader>
+                        <br>
+                        <cardDescription>${data.desc}</cardDescription>
+                        <br><br>
+                        ${badgesHTML}
 
                   </div>
                   `;
