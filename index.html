@@ -1548,19 +1548,22 @@
             }
             // create notices
             createNotice("etternaThemeNotice",  `Extract themes to <noticeHighlight>Etterna/Themes/</noticeHighlight>`)
-            createNotice("etternaSkinNotice",   `Some keymodes have separate folders. Extract to these:
+            // createNotice("etternaSkinNotice",   `Some keymodes have separate folders. Extract to these:
 
 
-                                                \t- 4k & 6k: <noticeHighlight>Etterna/NoteSkins/dance</noticeHighlight>
+            //                                     \t- 4k & 6k: <noticeHighlight>Etterna/NoteSkins/dance</noticeHighlight>
                                                       
-                                                \t- 5k & 10k: <noticeHighlight>Etterna/NoteSkins/pump</noticeHighlight>
+            //                                     \t- 5k & 10k: <noticeHighlight>Etterna/NoteSkins/pump</noticeHighlight>
 
-                                                \t- 7k: <noticeHighlight>Etterna/NoteSkins/kb7</noticeHighlight>
+            //                                     \t- 7k: <noticeHighlight>Etterna/NoteSkins/kb7</noticeHighlight>
                                                       
-                                                \t- 7+1k: <noticeHighlight>Etterna/NoteSkins/beat</noticeHighlight>
+            //                                     \t- 7+1k: <noticeHighlight>Etterna/NoteSkins/beat</noticeHighlight>
                                                       
-                                                \t- 9k: <noticeHighlight>Etterna/NoteSkins/popn</noticeHighlight><br>
-                                                `)
+            //                                     \t- 9k: <noticeHighlight>Etterna/NoteSkins/popn</noticeHighlight><br>
+            createNotice("etternaSkinNotice", `Most of my skins should be extracted to <noticeHighlight>Etterna/NoteSkins/global</noticeHighlight>
+                        <br>If the folder doesn't exist, create it! It's for skins that support all keymodes, which mine do
+            `)
+            //                                     `)
             
             // Get the element with id="defaultOpen" and click on it
             document.getElementById("defaultOpen").click();
