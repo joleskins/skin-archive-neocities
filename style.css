@@ -28,7 +28,7 @@ body {
           display: none;
         }
         
-        /*Giving the thumb a gradient*/
+        /*Giving the thumb colour*/
         ::-webkit-scrollbar-thumb {
           background-color: #141414;
           border: solid #FFFFFF33;
@@ -59,6 +59,44 @@ body {
             font-size: 1em;
             text-align: left;
         }
+
+        .loadingSpinner-container {
+          /*since we're placing this in a 2 column grid,
+          we need to make it take up all instead of 1,
+          otherwise the spinner gets placed in the first
+          card spot(top left)*/
+          grid-column: 1 / -1;
+          justify-self: center;
+
+          width: 24px;
+          height: 24px;
+          position: relative;
+          margin: 0;
+        }
+        .loadingSpinner-image,
+        .loadingSpinner-image2 {
+
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          
+          animation: loadingGrid 2s ease-out infinite;
+          rotate: 90deg;
+        }
+
+        /*overwrite animation status and rotation for 2nd image only*/
+        .loadingSpinner-image2 {
+          animation-delay: -1s;
+        }
+
+        @keyframes loadingGrid {
+          0%, 20%   {transform: translate(-6px,-6px)}
+          25%, 45%  {transform: translate(6px,-6px)}
+          50%, 70%  {transform: translate(6px,6px)}
+          75%, 95%  {transform: translate(-6px,6px)}
+          100%      {transform: translate(-6px,-6px)}
+        }
+
         cardHeader {
           font-size: 1.5em;
           text-align: left;
@@ -300,7 +338,6 @@ body {
           outline: none;
           box-shadow: none;
         }
-        /* Style tab links */
         .tablink {
           background-color: #141414;
           color: white;
@@ -319,7 +356,6 @@ body {
           cursor: url("cursor_hover.svg"), auto;
         }
 
-               /* Style tab links */
         .tabsorts {
           display: inline-flex;
           justify-content: center;
@@ -427,7 +463,6 @@ body {
             #FEBD02 318deg 360deg);
         }
 
-        /* Rounded sliders */
         .slider.round {
           border-radius: 17px;
         }
