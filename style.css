@@ -60,6 +60,13 @@ body {
             text-align: left;
         }
 
+        .changelog {
+          font-family: "Volter";
+          font-size: 9px;
+        }
+
+
+
         .loadingSpinner-container {
           /*since we're placing this in a 2 column grid,
           we need to make it take up all instead of 1,
@@ -140,12 +147,13 @@ body {
           position: relative;
         }
         noticeText {
-          font-size: 0.9em;
+          font-size: 9px;
+          font-family: "Volter";
           text-align: left;
           color: #FFFFFF88;
         }
         noticeHighlight {
-          font-size: 0.9em;
+          font-size: 9px;
           text-align: left;
           color: #FFFFFF;
         }
