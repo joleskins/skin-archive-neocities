@@ -198,6 +198,10 @@ body {
           left: 50%;
           transform: translate(-50%, -50%);
           font-size: 1.5em;
+          text-shadow:
+            1px 1px 2px #00000055,
+            0 0 1em #00000055,
+            0 0 0.2em #00000055;
         }
         .card-slideshow img {
             width: 100%;
