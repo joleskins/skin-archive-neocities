@@ -51,7 +51,7 @@
       <h3>Hi!</h3>
       <p>Find stuff for your game of choice here🎊</p><br>
       <p class="changelog">changelog<br>
-            <br>30/8/2026: wording
+            <br>30/8/2026: wording changes. etterna skins split up into skins and legacy skins
             <br>
             <br>29/8/2026: added shadow to 'unreleased' label, changed notice and toggles style a bit. general border style tweaks
             <br>
@@ -151,7 +151,7 @@
                               <img src="loading.svg" class="loadingSpinner-image2">
                         </div>
                   </div>
-        <br><br><br>
+      <br><br><br>
             <h1>Skins</h1>
                   <div class="noticeWrapper" id="etternaSkinNotice"></div>
                   <br>
@@ -172,7 +172,7 @@
                   </div>
                   <br>
 
-                  <div class="filterSettings" id="etternaSkinFilters"></div>
+                  <div class="filterSettings" id="etternaSkinsFilters"></div>
                   <div class="grid" id="etternaSkins">
                         <div class="loadingSpinner-container" id="etternaSkinLoadingSpinner">
                               <br>
@@ -183,6 +183,38 @@
                               <img src="loading.svg" class="loadingSpinner-image2">
                         </div>
                   </div>
+      <br><br><br>
+      <h1>Legacy Skins</h1>
+            <div class="noticeWrapper" id="etternaLegacySkinNotice"></div>
+            <br>
+
+            <div class="sortButtons" id="etternaLegacySkinSorts">
+                  <sortHeader>Sort</sortHeader>
+                  <button     class="tabsorts"
+                              data-game="etterna"
+                              data-category="legacySkins"
+                              data-sort="lastUpdated"
+                              onclick="sortList('lastUpdated', this, 'etterna', 'legacySkins')" id="defaultSort" style="background-color: #333333;"#>Recent</button>
+
+                  <button     class="tabsorts"
+                              data-game="etterna"
+                              data-category="legacySkins"
+                              data-sort="title"
+                              onclick="sortList('title', this, 'etterna', 'skins')">Title</button>
+            </div>
+            <br>
+
+            <div class="filterSettings" id="etternaLegacySkinsFilters"></div>
+            <div class="grid" id="etternaLegacySkins">
+                  <div class="loadingSpinner-container" id="etternaLegacySkinLoadingSpinner">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <img src="loading.svg" class="loadingSpinner-image">
+                        <img src="loading.svg" class="loadingSpinner-image2">
+                  </div>
+            </div>
         
         <br>
         <br>
@@ -224,7 +256,7 @@
                   </div>
                   <br>
 
-                  <div class="filterSettings" id="quaverSkinFilters"></div>
+                  <div class="filterSettings" id="quaverSkinsFilters"></div>
                   <div class="grid" id="quaverSkins">
                         <div class="loadingSpinner-container" id="quaverSkinLoadingSpinner">
                               <br>
@@ -315,7 +347,7 @@
                   </div>
                   <br>
 
-                  <div class="filterSettings" id="osuSkinFilters"></div>
+                  <div class="filterSettings" id="osuSkinsFilters"></div>
                   <div class="grid" id="osuSkins">
                         <div class="loadingSpinner-container" id="osuSkinLoadingSpinner">
                               <br>
@@ -405,7 +437,7 @@
                   </div>
                   <br>
 
-                  <div class="filterSettings" id="o2jamSkinFilters"></div>
+                  <div class="filterSettings" id="o2jamSkinsFilters"></div>
                   <div class="grid" id="o2jamSkins">
                         <div class="loadingSpinner-container" id="o2jamSkinLoadingSpinner">
                               <br>
@@ -495,7 +527,7 @@
                   </div>
                   <br>
 
-                  <div class="filterSettings" id="beatorajaSkinFilters"></div>
+                  <div class="filterSettings" id="beatorajaSkinsFilters"></div>
                   <div class="grid" id="beatorajaSkins">
                         <div class="loadingSpinner-container" id="beatorajaSkinLoadingSpinner">
                               <br>
@@ -580,7 +612,7 @@
                   </div>
                   <br>
 
-                  <div class="filterSettings" id="otherSkinFilters"></div>
+                  <div class="filterSettings" id="otherSkinsFilters"></div>
                 <div class="grid">
                 </div>
       
@@ -781,50 +813,9 @@
                                           badges: ["4-10k", "etterna744", "allthemes"]
                                     },
 
-                                    {
-                                          title: "Oregairu_NP",
-                                          desc: "customisable anime skin",
-                                          link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: [4],
-                                          releaseDate: "2020-12-07",
-                                          lastUpdated: "2020-12-07",
-                                          released: false,
-                                          type: "bar",
-                                          explosions: true,
-                                          stage_extras: true,
-                                          original: true,
-                                          badges: ["4k", "tildeath", "etterna703"]
-                                    },
                                     
-                                    {
-                                          title: "c_r_y_s_t_a_l_l_i_z_e_d",
-                                          desc: "skin port, original by Garin",
-                                          link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: [4],
-                                          releaseDate: "2021-01-12",
-                                          lastUpdated: "2021-01-12",
-                                          released: false,
-                                          type: "bar",
-                                          explosions: true,
-                                          stage_extras: true,
-                                          original: false,
-                                          badges: ["4k", "tildeath", "etterna703"]
-                                    },
                                     
-                                    {
-                                          title: "GHDrum",
-                                          desc: "literally guitar hero",
-                                          link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: [4, 5],
-                                          releaseDate: "2021-01-17",
-                                          lastUpdated: "2021-01-17",
-                                          released: false,
-                                          type: "circle",
-                                          explosions: true,
-                                          stage_extras: true,
-                                          original: true,
-                                          badges: ["4k", "tildeath", "3d", "etterna703"]
-                                    },
+                                    
                                     
                                     {
                                           title: "GloryDay",
@@ -886,21 +877,53 @@
                                           badges: ["4k", "tildeath", "etterna703"]
                                     },
                                     
-                                    {
-                                          title: "R_Skin_4k",
-                                          desc: "skin port, original by Retsukiya",
-                                          link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                                          keys: [4],
-                                          releaseDate: "2020-07-26",
-                                          lastUpdated: "2020-07-26",
-                                          released: false,
-                                          type: "bar",
-                                          explosions: false,
-                                          stage_extras: true,
-                                          original: false,
-                                          badges: ["4k", "tildeath", "etterna703"]
-                                    },
                                     
+                                    
+                                    
+
+                                    
+                              ]
+                        },
+
+                        legacySkins: {
+                              folder: "etternalegacyskins",
+                              container: "etternaLegacySkins",
+                              toggles: [
+                                    {
+                                          title: "explosions", enabled: true
+                                    },
+
+                                    {
+                                          title: "stage extras", enabled: true
+                                    },
+
+                                    {
+                                          title: "snaps", enabled: true
+                                    },
+
+                                    {
+                                          title: "original", enabled: true
+                                    }
+                              ],
+                              dropdowns: [
+                                    {
+                                          title: "keymode",
+                                          source: "keys",   
+                                          label: "Keymode",
+                                          enabled: null,                         
+                                          items: []
+                                          
+                                    },
+
+                                    {
+                                          title: "type",
+                                          source: "type",
+                                          label: "Type",
+                                          enabled: null,
+                                          items: [],
+                                    },
+                              ],
+                              items: [
                                     {
                                           title: "Arcaea-Technika",
                                           desc: "very neon",
@@ -931,9 +954,67 @@
                                           badges: ["4k", "tildeath", "etterna703"]
                                     },
 
+                                    {
+                                          title: "R_Skin_4k",
+                                          desc: "skin port, original by Retsukiya",
+                                          link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                                          keys: [4],
+                                          releaseDate: "2020-07-26",
+                                          lastUpdated: "2020-07-26",
+                                          released: false,
+                                          type: "bar",
+                                          explosions: false,
+                                          stage_extras: true,
+                                          original: false,
+                                          badges: ["4k", "tildeath", "etterna703"]
+                                    },
+
+                                    {
+                                          title: "c_r_y_s_t_a_l_l_i_z_e_d",
+                                          desc: "skin port, original by Garin",
+                                          link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                                          keys: [4],
+                                          releaseDate: "2021-01-12",
+                                          lastUpdated: "2021-01-12",
+                                          released: false,
+                                          type: "bar",
+                                          explosions: true,
+                                          stage_extras: true,
+                                          original: false,
+                                          badges: ["4k", "tildeath", "etterna703"]
+                                    },
                                     
+                                    {
+                                          title: "GHDrum",
+                                          desc: "literally guitar hero",
+                                          link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                                          keys: [4, 5],
+                                          releaseDate: "2021-01-17",
+                                          lastUpdated: "2021-01-17",
+                                          released: false,
+                                          type: "circle",
+                                          explosions: true,
+                                          stage_extras: true,
+                                          original: true,
+                                          badges: ["4k", "tildeath", "3d", "etterna703"]
+                                    },
+
+                                    {
+                                          title: "Oregairu_NP",
+                                          desc: "customisable anime skin",
+                                          link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                                          keys: [4],
+                                          releaseDate: "2020-12-07",
+                                          lastUpdated: "2020-12-07",
+                                          released: false,
+                                          type: "bar",
+                                          explosions: true,
+                                          stage_extras: true,
+                                          original: true,
+                                          badges: ["4k", "tildeath", "etterna703"]
+                                    },
                               ]
-                        }
+                        },
                   },
 
                   quaver: {
@@ -1398,10 +1479,17 @@
             }
 
             function buildToggles(game) {
-                  const container = document.getElementById(`${game}SkinFilters`);
 
                   const categories = skins[game];
                   for (const category in categories) {
+
+                        // find this category's specific container
+                        // (grab first char as uppercase and concat the rest but omit first char on concat)
+                        const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+                        const containerId = `${game}${formattedCategory}Filters`;
+                        const container = document.getElementById(containerId);
+
+                        
                         const { toggles } = categories[category];
                         if (!toggles || toggles.length === 0) continue;
 
@@ -1423,11 +1511,14 @@
             }
 
             function buildDropdowns(game) {
-                  const container = document.getElementById(`${game}SkinFilters`);
 
                   const categories = skins[game];
-
                   for(const category in categories) {
+
+                        const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+                        const containerId = `${game}${formattedCategory}Filters`;
+                        const container = document.getElementById(containerId);
+
                         const {dropdowns} = categories[category];
                         if(!dropdowns || dropdowns.length === 0) continue;
 
@@ -1611,14 +1702,21 @@
                                           item.slides = await findSlides(folder, item.title);
                                     }
                               }
-                              const filterContainer = document.getElementById(`${pageName}SkinFilters`);
-                              filterContainer.innerHTML = "";
-                              buildToggles(pageName)
-                              buildDropdowns(pageName)
+
+                              const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+                              const filterContainer = document.getElementById(`${pageName}${formattedCategory}Filters`);
+                              
+                              if(filterContainer != null) {
+                                    filterContainer.innerHTML = "";
+                              }
+                              
 
                               const sortMode = activeSort?.[pageName]?.[category] || "lastUpdated";
                               await renderFilteredSorted(pageName, category, sortMode);
                         }
+
+                        buildToggles(pageName)
+                        buildDropdowns(pageName)
                   }
 
                   // mark page as loaded 
@@ -1712,10 +1810,20 @@
             //                                     \t- 7+1k: <noticeHighlight>Etterna/NoteSkins/beat</noticeHighlight>
                                                       
             //                                     \t- 9k: <noticeHighlight>Etterna/NoteSkins/popn</noticeHighlight><br>
+            //                                     `)
             createNotice("etternaSkinNotice", `These skins should be extracted to <noticeHighlight>Etterna/NoteSkins/global</noticeHighlight>
                         <br>If the folder doesn't exist, create it! It's for skins that support all keymodes!
             `)
-            //                                     `)
+
+            createNotice("etternaLegacySkinNotice",   `These are older skins that don't support all keymodes.
+                                                      \t Inside <noticeHighlight>Etterna/NoteSkins</noticeHighlight>, use these folders:
+                                                      \t- 4k & 6k: <noticeHighlight>dance</noticeHighlight>
+                                                      \t- 5k & 10k: <noticeHighlight>pump</noticeHighlight>
+                                                      \t- 7k: <noticeHighlight>kb7</noticeHighlight>
+                                                      \t- 7+1k: <noticeHighlight>beat</noticeHighlight>
+                                                      \t- 9k: <noticeHighlight>popn</noticeHighlight><br>
+            `)
+            
             
             // Get the element with id="defaultOpen" and click on it
             document.getElementById("defaultOpen").click();
