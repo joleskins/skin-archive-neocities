@@ -357,11 +357,12 @@ body {
           border-radius: 2.5px;
           border-width: 1px;
           outline: none;
-          padding: 14px 12px;
+          padding: 14px 0px;
           font-size: 1em;
           font-size: 0.8vw;
           width: 8.07%;
           margin: 0.3%;
+          text-align:center;
         }
         
         .tablink:hover {
