@@ -51,7 +51,7 @@
       <h3>Hi!</h3>
       <p>Find stuff for your game of choice here🎊</p><br>
       <p class="changelog">changelog<br>
-            <br>31/8/2026: fixed page button dynamic size shenanigans
+            <br>31/8/2026: fixed page button dynamic size shenanigans. boot mobile users out(for the time being)
             <br>
             <br>30/8/2026: wording changes. etterna skins split up into skins and legacy skins. legacy skins available for download
             <br>
@@ -1841,6 +1841,17 @@
             window.addEventListener("beforeunload", function () {
                   window.scrollTo(0, 0);
             });
+
+
+            // i am lazy and mobile is kinda broken so boot mobile users out
+            let userAgent = navigator.userAgent
+            let regexMobile = /android|iphone|kindle|ipad/i;
+            let isMobile = regexMobile.test(userAgent)
+            if (isMobile) {
+                  window.onload=function() {
+                        document.body.innerHTML = "<h1>Mobile not supported</h1>";
+                  }
+            }
 
         </script>
 
