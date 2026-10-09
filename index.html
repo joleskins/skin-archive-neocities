@@ -1236,7 +1236,7 @@
                   container.innerHTML = "";
 
                   container.innerHTML += data.sites.map(site =>
-                  `<p class="othersites"><a url="${site.url}"">${site.url}</a> by ${site.creator}</p>`
+                  `<p class="othersites"><a href=${site.url} target="_blank">${site.url}</a> by ${site.creator}</p>`
                   ).join("")
             }
 
