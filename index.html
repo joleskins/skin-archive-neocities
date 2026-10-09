@@ -95,41 +95,16 @@
       <br>
       <br>
             <br>
-      <br>
-      <br>
-      <br>
-            <br>
-      <br>
-      <br>
-      <br>
-            <br>
-      <br>
-      <br>
-      <br>
-            <br>
-      <br>
-      <br>
-      <br>
-            <br>
-      <br>
-      <br>
-      <br>
-            <br>
-      <br>
-      <br>
-      <br>
-            <br>
-      <br>
-      <br>
-      <br>
-            <br>
-      <br>
-      <br>
-      <br>
-            <br>
-      <br>
-      <br>
-      <br>
+
+      <div id="otherSitesContainer" class="otherSites">
+            <h1>Related websites</h1>
+            Check out these other VSRG related sites!
+            <br><br>
+            <otherSites id="otherSitesHome" class="otherSitesHome">
+                  E
+            </otherSites>
+      </div>
+
     </div>
     
     
@@ -1219,6 +1194,50 @@
                         }
                   }
             }
+
+            const otherSites = {
+                  sites:
+                  [
+                        {creator: "Zeta", url: "https://www.starke.gg/"},
+                        {creator: "Windoze", url: "https://overthefraildream.net/"},
+                        {creator: "Zeta", url: "https://mescog.org/"},
+                        {creator: "Foxfire", url: "https://floofer.fyi/1985/index.txt"},
+                        {creator: "dmriw", url: "https://dmriw.com/"}
+                  ]
+            }
+
+            //stolen from stackoverflow ^-^
+            //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+            function shuffle(array) {
+                  let currentIndex = array.length;
+
+                  // While there remain elements to shuffle...
+                  while (currentIndex != 0) {
+
+                  // Pick a remaining element...
+                  let randomIndex = Math.floor(Math.random() * currentIndex);
+                  currentIndex--;
+
+                  // And swap it with the current element.
+                  [array[currentIndex], array[randomIndex]] = [
+                        array[randomIndex], array[currentIndex]];
+                  }
+            }
+
+            function createOtherSites(data) {
+                  const container = document.getElementById("otherSitesHome");
+
+                  //shuffle sites!!
+                  shuffle(data.sites)
+
+                  container.innerHTML = "";
+
+                  container.innerHTML += data.sites.map(site =>
+                  `<p class="othersites"><a url="${site.url}"">${site.url}</a> by ${site.creator}</p>`
+                  ).join("")
+            }
+
+            createOtherSites(otherSites)
 
 
 
