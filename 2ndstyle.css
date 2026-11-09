@@ -1,0 +1,12 @@
+/*replace cursor*/
+* {
+  cursor: url("cursor.svg"), auto;
+}
+
+body {
+    background-color: #060606;
+    color: #FFFFFF;
+    font-family: 'lexend';
+    margin: 0;
+    padding: 0;
+}
